@@ -1,0 +1,20 @@
+// Prisma schema — PostgreSQL on Neon
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")    // Neon pooled connection string (recommended for serverless)
+  directUrl = env("DIRECT_URL")      // Neon direct (unpooled) connection string for migrations
+}
+
+// Example model — adjust to your needs
+//
+// model User {
+//   id    String @id @default(cuid())
+//   email String @unique
+//   name  String?
+// }
